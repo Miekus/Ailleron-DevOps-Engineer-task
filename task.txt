@@ -1,0 +1,41 @@
+Recruitment task:
+
+Create an Infrastructure as a Code terraform script that passes these 6 points:
+
+A resource group in the West Europe region called "recruitment-challenge". All resources should be deployed inside the resource group.
+Create VNet called "recruitment-vnet" with settings:
+address_space = 10.0.10.0/23
+Subnet "recruitment-subnet" with the settings:
+address_prefixes = 10.0.10.0/24
+connect to the "recruitment-vnet" VNet
+
+AKS Cluster called "recruitment-aks" with the settings:
+default_node_pool:
+name = recruitmentpool
+autoscale enabled
+Available zones:
+Minimum: 3
+Maximum: 10
+use subnet "recruitment-subnet"
+System Disks - 256GiB
+dns_prefix = "recruitment-dns-prefix"
+identity = SystemAssigned
+network_profile:
+network_plugin = "azure"
+dns_service_ip = "10.254.0.10"
+docker_bridge_cidr = "172.17.0.1/16"
+service_cidr = "10.254.0.0/16"
+auto_scaler_profile:
+scale_down_utilization_threshold = 0.8
+skip_nodes_with_system_pods = false
+skip_nodes_with_local_storage = false
+role_based_access_control.enabled = true
+All cloud resources should use the below tags:
+env: recruitment
+name: AuthorFullName
+The task can be resolved by any method.
+The code can be delivered as a single file or reusable modules.
+Please use the newer versions of terraform script and provider.
+Terraform Backend should use a storage account - here, please prepare only a configuration template - subscription, state name,
+Please remember to use the best practices, as you know.
+if any setting is required and hasn't been included, use the default values or values preferred by you
