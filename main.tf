@@ -36,7 +36,6 @@ module "Kubernates" {
     identity-type                       = var.identity-type
     #Network profile
     network-plugin                      = var.network-plugin
-    # load-balancer-sku = ""
     dns-service-ip                      = var.dns-service-ip
     docker-bridge-cidr                  = var.docker-bridge-cidr
     service-cidr                        = var.service-cidr
