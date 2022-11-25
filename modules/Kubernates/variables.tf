@@ -1,32 +1,11 @@
-
-// Resource Group
+//Resource Group
 variable "resource-group-location" {
   type = string
 }
 variable "resource-group-name" {
   type = string
 }
-
-// Networking
-variable "vNet-name" {
-  type = string
-}
-variable "vNet-address-space" {
-  type = string
-}
-#SubNet
-variable "SubNet-name" {
-  type = string
-}
-variable "SubNet-address-prefixes" {
-  type = string
-}
-#Security group
-variable "security-group-name" {
-  type = string
-}
-
-// Kubernates 
+// AKS
 variable "aks-name" {
   type = string
 }
@@ -36,21 +15,7 @@ variable "dns-prefix" {
 variable "identity-type" {
   type = string
 }
-#Auto-scaler profile
-variable "scale-down-utilization-threshold" {
-  type = string
-}
-variable "skip-nodes-with-system-pods" {
-  type = bool
-}
-variable "skip-nodes-with-local-storage" {
-  type = bool
-}
-#RBAC
-variable "role-based-access-control" {
-  type = bool
-}
-#Network profile
+//Network profile
 variable "network-plugin" {
   type = string
 }
@@ -63,8 +28,21 @@ variable "docker-bridge-cidr" {
 variable "service-cidr" {
   type = string
 }
-
-#Node pool
+//Auto-scaler profile
+variable "scale-down-utilization-threshold" {
+  type = string
+}
+variable "skip-nodes-with-system-pods" {
+  type = bool
+}
+variable "skip-nodes-with-local-storage" {
+  type = bool
+}
+//RBAC
+variable "role-based-access-control" {
+  type = bool
+}
+//Node pool
 variable "node-pool-name" {
   type = string
 }
@@ -85,6 +63,9 @@ variable "node-pool-vm-size" {
 }
 variable "node-pool-zones" {
   type = list(string)
+}
+variable "vnet-recruitment-subnet-id" {
+  type = string
 }
 
 // Tags
