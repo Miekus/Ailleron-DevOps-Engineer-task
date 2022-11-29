@@ -5,26 +5,14 @@ terraform {
       version = "=3.0.0"
     }
   }
+    backend "azurerm" { // variables are not allowed here?
+      resource_group_name  = "recruitment-challenge"
+      storage_account_name = "storageaccount"
+      container_name       = "Tfstate"
+      key                  = "terraform.tfstate"
+  }
 }
 provider "azurerm" {
   skip_provider_registration = true
   features {}
 }
-
-# resource "azurerm_storage_account" "example" {
-#   name                     = "storageaccountname"
-#   resource_group_name      = azurerm_resource_group.example.name
-#   location                 = azurerm_resource_group.example.location
-#   account_tier             = "Standard"
-#   account_replication_type = "GRS"
-
-#   tags = {
-#     environment = "staging"
-#   }
-# }
-
-# resource "azurerm_storage_container" "tfstate" {
-#   name                  = "tfstate"
-#   storage_account_name  = azurerm_storage_account.tfstate.name
-#   container_access_type = "blob"
-# }

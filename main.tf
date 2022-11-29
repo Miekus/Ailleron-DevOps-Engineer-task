@@ -4,6 +4,24 @@ resource "azurerm_resource_group" "recruitment-challenge" {
     location = var.resource-group-location
 }
 
+#I don't know how to test it without loging to cli so this is only test "template". I will be happy if you can correct me with this module
+module "Storage" {
+    source                          = "./modules/Networking"
+    #Resource group
+    resource-group-name             = azurerm_resource_group.recruitment-challenge.name
+    resource-group-location         = azurerm_resource_group.recruitment-challenge.location
+    #Storage account
+    storage-account-name            = var.storage-account-name
+    account-tier                    = var.account-tier 
+    account-replication-type        = var.account-replication-type
+    #Storage container
+    storage-container-name          = var.storage-container-name 
+    storage-container-access-type   = var.storage-container-access-type
+    #Tags
+    tag-env                         = var.tag-env
+    tag-name                        = var.tag-name
+}
+
 module "Networking" {
     source                      = "./modules/Networking"
     #Resource group

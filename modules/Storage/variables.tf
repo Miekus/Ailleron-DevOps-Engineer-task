@@ -1,26 +1,25 @@
-//Resource group
+//Security group
 variable "resource-group-location" {
   type = string
 }
 variable "resource-group-name" {
   type = string
 }
-//vNet
-variable "vNet-name" {
+//Storage account
+variable "storage-account-name" {
   type = string
 }
-variable "vNet-address-space" {
+variable "account-tier" {
   type = string
 }
-//Security group
-variable "security-group-name" {
+variable "account-replication-type" {
   type = string
 }
-//Subnet
-variable "SubNet-name" {
+//Storage container
+variable "storage-container-name" {
   type = string
 }
-variable "SubNet-address-prefixes" {
+variable "storage-container-access-type" {
   type = string
 }
 //Tags
@@ -30,4 +29,3 @@ variable "tag-env" {
 variable "tag-name" {
   type = string
 }
-
